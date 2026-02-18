@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Mercury - Interactive Planet Page</title>
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #0d0d25;
+    color: white;
+    text-align: center;
+}
+
+/* Header */
+header {
+    font-size: 50px;
+    padding: 40px 0;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.7);
+}
+
+/* Planet Image */
+.planet-image img {
+    width: 200px;
+    border-radius: 50%;
+    box-shadow: 0 0 30px rgba(255,255,255,0.5);
+    margin: 20px 0;
+}
+
+/* Info Section */
+.info {
+    max-width: 600px;
+    margin: 20px auto;
+    background: rgba(30,30,60,0.9);
+    padding: 20px;
+    border-radius: 15px;
+    text-align: left;
+}
+
+/* Quiz */
+.quiz {
+    margin-top: 20px;
+}
+.quiz h3 {
+    margin-bottom: 10px;
+}
+.quiz input[type="radio"] {
+    display: none;
+}
+.quiz label {
+    display: block;
+    padding: 8px;
+    margin: 5px 0;
+    background: rgba(255,255,255,0.1);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.quiz label:hover { background: rgba(255,255,255,0.3); }
+
+/* Correct/Wrong Feedback - shown only when selected */
+.correct-answer {
+    display: none;
+    color: #0f0;
+    font-weight: bold;
+    margin-top: 5px;
+}
+.wrong-answer {
+    display: none;
+    color: #f00;
+    font-weight: bold;
+    margin-top: 5px;
+}
+/* Show feedback if input checked */
+#mercury-q1-a:checked ~ .correct-answer,
+#mercury-q1-b:checked ~ .wrong-answer,
+#mercury-q1-c:checked ~ .wrong-answer {
+    display: block;
+}
+
+/* Weight Calculator */
+.weight-calc {
+    margin-top: 20px;
+    background: rgba(30,30,60,0.9);
+    padding: 15px;
+    border-radius: 15px;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.weight-calc input[type="number"] {
+    padding: 10px;
+    width: 100px;
+    border-radius: 5px;
+    border: none;
+    margin-top: 10px;
+}
+.weight-calc button {
+    padding: 8px 15px;
+    margin-left: 10px;
+    border-radius: 5px;
+    border: none;
+    background: #ff4500;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.weight-calc button:hover {
+    background: #ff6347;
+}
+.weight-calc .weight-result {
+    display: none;
+    font-weight: bold;
+    margin-top: 10px;
+    font-size: 20px;
+}
+#calculate:checked ~ .weight-calc .weight-result {
+    display: block;
+}
+
+/* Back Button */
+.back {
+    display: inline-block;
+    margin: 30px 0;
+    padding: 10px 20px;
+    background: #ff4500;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+.back:hover { background: #ff6347; }
+</style>
+</head>
+<body>
+
+<header>Mercury</header>
+
+<!-- Planet Image -->
+<div class="planet-image">
+    <img src="https://solarsystem.nasa.gov/system/feature_items/images/18_mercury_new.png" alt="Mercury">
+</div>
+
+<!-- Info Section -->
+<div class="info">
+    <h2>About Mercury</h2>
+    <p>Mercury is the closest planet to the Sun. It has extreme temperatures, no moons, and a rocky surface with craters.</p>
+</div>
+
+<!-- Interactive Quiz -->
+<div class="quiz">
+<h3>Quiz: Which planet is closest to the Sun?</h3>
+
+<input type="radio" name="mercury-quiz" id="mercury-q1-a">
+<label for="mercury-q1-a">Mercury</label>
+
+<input type="radio" name="mercury-quiz" id="mercury-q1-b">
+<label for="mercury-q1-b">Venus</label>
+
+<input type="radio" name="mercury-quiz" id="mercury-q1-c">
+<label for="mercury-q1-c">Earth</label>
+
+<!-- Feedback -->
+<p class="correct-answer">✅ Correct! Mercury is closest to the Sun.</p>
+<p class="wrong-answer">❌ Wrong! Try again.</p>
+</div>
+
+<!-- Weight Calculator -->
+<div class="weight-calc">
+<label>Enter your weight on Earth (kg):</label>
+<input type="number" id="earth-weight" placeholder="e.g., 70">
+<p>Calculate your weight on Mercury:</p>
+<input type="radio" id="calculate" name="calc-toggle">
+<label for="calculate" style="cursor:pointer;background:rgba(255,255,255,0.1);padding:5px 10px;border-radius:5px;">Show Weight</label>
+<div class="weight-result">
+70 kg on Earth → 26 kg on Mercury
+</div>
+</div>
+
+<!-- Back Button -->
+<a href="index.html" class="back">Back to Home</a>
+
+</body>
+</html>
